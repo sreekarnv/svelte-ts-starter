@@ -53,8 +53,16 @@ export default {
 				dev: !production,
 			},
 		}),
-		scss({ sourceMap: !production, output: 'public/build/bundle.css' }),
-		css({ output: 'public/build/bundle.css', sourceMap: !production }),
+		scss({
+			sourceMap: !production,
+			output: 'public/build/bundle.css',
+			outputStyle: production ? 'compressed' : undefined,
+		}),
+		css({
+			output: 'public/build/bundle.css',
+			sourceMap: !production,
+			outputStyle: production ? 'compressed' : undefined,
+		}),
 		resolve({
 			browser: true,
 			dedupe: ['svelte'],
